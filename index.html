@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヤマグチゼミ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loading-frame">
+      <div class="loading-group">
+        <h1 class="loading-title">ヤマグチゼミ</h1>
+        <p class="loading-subtitle">RECRUITMENT WEBSITE</p>
+        <p class="loading-status">LOADING <span id="loading-percentage">0</span></p>
+      </div>
+    </div>
+  </div>
+  <div id="vanta-bg"></div>
+  <div class="frame-group">
+    <div class="frame"></div>
+    <div class="scroll-down" id="scroll-window">
+      <span class="scroll-text">SCROLL DOWN</span>
+      <div class="dots">
+        <div class="dot yellow"></div>
+        <div class="dot blue"></div>
+        <div class="dot red"></div>
+      </div>
+    </div>
+    <div class="icon-container">
+      <div class="speech-bubble">
+        <span class="typing-text" id="typing-text"></span>
+      </div>
+      <img src="img/your-icon.jpg" alt="アイコン" class="icon-image">
+    </div>
+  </div>
+  <div class="click-effect"></div>
+  <div class="cursor"></div>
+
+  <header class="header">
+    <h1 class="logo">ヤマグチゼミ</h1>
+    <p class="sub-logo">SEMINAR WEBSITE</p>
+    <nav class="nav-bar">
+      <ul>
+        <li>
+          <a href="#about-us">ABOUT US</a>
+          <span class="nav-description">私たちのこと</span>
+        </li>
+        <li>
+          <a href="#member">MEMBER</a>
+          <span class="nav-description">ゼミ生紹介</span>
+        </li>
+        <li>
+          <a href="#activity-journal">ACTIVITY JOURNAL</a>
+          <span class="nav-description">活動記録</span>
+        </li>
+        <li>
+          <a href="#inquiry">INQUIRY</a>
+          <span class="nav-description">お問い合わせ</span>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="catch-copy">
+        <p class="first">
+          <span class="highlight">常識</span> に
+        </p>
+        <p>噛みつけ。</p>
+      </div>
+    </section>
+
+    <section class="scroll-message">
+      <p>誰にだって、</p>
+      <p>その人から放たれる色がある。</p>
+      <p>心の奥底にある自分だけの色に、</p>
+      <p>素直に染まってみよう。</p>
+      <p>この世界は、ひとりひとりに宿る</p>
+      <p>たくさんの色でできている。</p>
+      <p>見つけよう　ジブン色。</p>
+    </section>
+
+    <!-- ABOUT US セクション -->
+    <section id="about-us" class="about-us">
+      <h1 class="about-title">ABOUT US</h1>
+      <p class="about-description">私たちのこと</p>
+    </section>
+  </main>
+
+  <!-- GSAP本体 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- ScrollTriggerプラグイン -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- 自作JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
+
