@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ヤマグチゼミ</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/dotnina.png" type="image/png" sizes="130x130">>
 </head>
 <body>
   <div id="loading-screen">
@@ -17,23 +18,30 @@
     </div>
   </div>
   <div id="vanta-bg"></div>
+  <div class="background"></div>
   <div class="frame-group">
-    <div class="frame"></div>
-    <div class="scroll-down" id="scroll-window">
-      <span class="scroll-text">SCROLL DOWN</span>
-      <div class="dots">
-        <div class="dot yellow"></div>
-        <div class="dot blue"></div>
-        <div class="dot red"></div>
-      </div>
-    </div>
-    <div class="icon-container">
+    <div class="frame">
+      <div class="icon-container">
       <div class="speech-bubble">
         <span class="typing-text" id="typing-text"></span>
+        </div>
+        <img src="img/your-icon.jpg" alt="アイコン" class="icon-image">
       </div>
-      <img src="img/your-icon.jpg" alt="アイコン" class="icon-image">
+      <!-- テキストウィンドウを白枠の子要素として配置 -->
+      <div class="scroll-down">
+        <span class="scroll-text">SCROLL DOWN</span>
+         <div class="dots">
+           <div class="dot yellow"></div>
+           <div class="dot blue"></div>
+           <div class="dot red"></div>
+      </div>
     </div>
   </div>
+  
+  
+    
+  </div>
+  
   <div class="click-effect"></div>
   <div class="cursor"></div>
 

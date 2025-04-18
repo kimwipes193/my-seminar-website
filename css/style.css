@@ -9,58 +9,104 @@ body {
     margin-top: 100px;
   }
   /* 全体の背景 */
-  body {
+  .background {
     margin: 0;
     background-image: url("../img/cover.jpg"); /* ファイル名変更後 */
-    background-size: cover;
-    background-position: center;
+    background-size: auto 100vh;
+    background-position: right center; /* 右端を中央揃え */
+    background-repeat: no-repeat;
     background-attachment: fixed;
   }
   
-/* 白い枠とテキストウィンドウをグループ化 */
-.frame-group {
-  position: fixed; /* 基準を固定 */
-  top: 5%;
-  left: 5%;
-  width: 90%;
-  height: 90%;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px; /* 各要素間の間隔を調整 */
-  overflow: visible; /* 子要素がはみ出しても表示 */
-}
-
-/* 白い枠 */
-.frame {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  border: 3px solid white;
-  border-radius: 20px;
-  pointer-events: none;
-}
-
-/* テキストウィンドウ */
-.scroll-down {
-  position: absolute;
-  top: 70%; /* 真下にずらす */
-  left: 0;
-  width: 12vw;
-  height: 4vh;
-  background-color: white; /* 背景色を白に設定 */
-  border-radius: 20px 0px 20px 0px; /* 角丸を維持 */
-  padding: 1vh; /* 内側の余白を維持 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
-  font-family: 'Barmo', sans-serif; /* フォントを適用 */
-  font-size: 1.2vh; /* フォントサイズを維持 */
-  color: black; /* テキストの色を黒に設定 */
-  z-index: 1000; /* 他の要素より前面に表示 */
-  transform: rotate(90deg); /* 時計回りに90度回転 */
-  transform-origin: bottom left; /* 回転の基準点を左下に設定 */
-}
+  .frame-group {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ← 画面中央に完全固定 */
+    width: 90vw;
+    height: 90vh;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    pointer-events: none;
+  }
+  
+  
+  .frame {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid white;
+    border-radius: 30px;
+    z-index: 1;
+  }
+  
+  .scroll-down {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2vw;
+    height: 19vh;
+    background-color: white;
+    border-radius: 0px 30px 0px 23px;
+    padding: 0.5vh 0.2vw;
+    text-align: center;
+    font-family: 'Barmo', sans-serif;
+    font-size: 1.2vh;
+    color: black;
+    z-index: 1000;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  /* テキストを横に保ちつつ回転し、中央に保つ */
+  .scroll-down .scroll-text {
+    transform: rotate(90deg) translateY(0); /* 上下位置を中央に保つ */
+    transform-origin: center;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* 親要素の高さに合わせる */
+  }
+  
+  /* ドットを縦並びに表示し、テキストの下に配置 */
+  .scroll-down .dots {
+    margin-top: 2px;      /* テキストとの間隔 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;              /* ドット同士の間隔 */
+  }
+  
+  
+  
+  .scroll-down .dot.yellow {
+    background-color: #f9c74f;
+  }
+  
+  .scroll-down .dot.blue {
+    background-color: #577590;
+  }
+  
+  .scroll-down .dot.red {
+    background-color: #f94144;
+  }
+  
+  
+  
+  
+  
   
   /* フォント適用 */
 @font-face {
@@ -91,28 +137,28 @@ body {
   }
   
   /* タイトルのスタイル */
-.logo {
-  font-family: 'Senobi Gothic', sans-serif;
+  .logo {
+    font-family: 'Senobi Gothic', sans-serif;
   font-size: 8vw; /* ビューポート幅の8%を基準に設定 */
-  font-weight: bold;
-  color: white;
-  margin: 0;
-  line-height: 1;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    line-height: 1;
   transform-origin: left top; /* 左上を基準に変形 */
-  padding-left: 8%; /* 少し右にずらす */
+  padding-left: 8.5%; /* 少し右にずらす */
   margin-top: 3%; /* 少し下にずらす */
   letter-spacing: -0.2em; /* 文字間隔を詰める */
   white-space: nowrap; /* 改行を防ぐ */
-}
+  }
 
-/* サブタイトルのスタイル */
-.sub-logo {
+  /* サブタイトルのスタイル */
+  .sub-logo {
   font-family: 'Barmo', sans-serif; /* サブタイトルにBarmoフォントを適用 */
   font-size: 1.5vw; /* ビューポート幅の2%を基準に設定 */
-  color: white;
-  margin-top: 2%; /* 少し下にずらす */
+    color: white;
+  margin-top: 3%; /* 少し下にずらす */
   padding-left: 13%; /* 少し右にずらす */
-}
+  }
   
   
   main {
@@ -241,27 +287,38 @@ body {
   
   /* アイコンボックス全体のスタイル */
   .icon-container {
-    position: fixed; /* スクロールしても動かないように固定 */
-    top: 5%; /* 白い枠の上端と一致 */
-    right: 4.8%; /* 白い枠の右端と一致 */
+    position: absolute;
+    top: -0.1%;
+    right: -0.1%;
     display: flex;
     align-items: center;
-    gap: 20px; /* 吹き出しとアイコンの間隔を調整 */
-    z-index: 1001; /* 白い枠よりも前面に表示 */
-    overflow: hidden; /* 枠内に収める */
-    width: 6.2vw; /* サイズを小さく調整 */
-    height: 6.2vw;
-    border-radius: 0px 20px 0px 20px; /* 左下と右上を丸くする */
-    border: 3px solid #fff; /* 白い枠線を追加 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
-    align-self: flex-end; /* 右端に配置 */
+    justify-content: center; /* 中央揃え */
+    z-index: 10;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 0px 20px 0px 20px;
+    border: 3px solid #fff;
+    background-color: white;
+    overflow: hidden; /* はみ出しを隠す */
+  }
+  
+  .icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* はみ出し防止・切り取り */
+    transition: transform 0.3s ease;
+    transform-origin: center center; /* 拡大の起点 */
+  }
+  
+  .icon-image:hover {
+    transform: scale(1.1); /* 枠内で画像だけ拡大 */
   }
   
   /* 吹き出しのスタイル */
   .speech-bubble {
     position: fixed;
-    top: 2.8%;
-    right: 8.5%;
+    top:-2%;
+    right: 3%;
     background-color: white; /* 吹き出しの背景色を白に設定 */
     color: black; /* デフォルトの文字色を黒に設定 */
     border-radius: 40px;
@@ -277,11 +334,11 @@ body {
   .speech-bubble::after {
     content: "";
     position: absolute;
-    bottom: -15px;
+    bottom: -0.7vh; /* ビューポート高さに基づいて調整 */
     left: 50%;
     transform: translateX(-50%) rotate(-135deg);
-    border: 20px solid transparent;
-    border-top-color: rgba(255, 255, 255, 1);
+    border: 1vh solid transparent; /* 三角形の大きさをビューポート高さに基づいて調整 */
+    border-top-color: rgba(255, 255, 255, 1); /* 三角形の色を白に設定 */
     border-bottom: 0;
     width: 0;
     height: 0;
@@ -309,28 +366,7 @@ body {
     font-size: 0.7vw; /* フォントサイズを調整 */
   }
 
-  /* SCROLL DOWN テキストウィンドウのスタイル */
-.scroll-down {
-  position: absolute; /* スクロールしても固定 */
-  bottom: auto; /* 下端からの位置指定を解除 */
-  top: 65.5%; /* 上端からの位置を指定 */
-  left: 0; /* 左端に揃える */
-  width: 12vw; /* サイズを固定 */
-  height: 4vh; /* サイズを固定 */
-  background-color: white; /* 背景色を白に設定 */
-  border-radius: 20px 0px 20px 0px; /* 左上と右下を直角に、右上と左下を丸くする */
-  padding: 1vh; /* 内側の余白をビューポート高さに基づいて設定 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
-  text-align: center; /* テキストを中央揃え */
-  font-family: 'Barmo', sans-serif; /* フォントをBarmoに設定 */
-  font-size: 1.2vh; /* フォントサイズをビューポート高さに基づいて設定 */
-  color: black; /* テキストの色を黒に設定 */
-  z-index: 1000; /* 他の要素より前面に表示 */
-  transform: rotate(90deg); /* 時計回りに90度回転 */
-  transform-origin: bottom left; /* 回転の基準点を左下に設定 */
-}
-
-/* ドットのスタイル */
+  /* ドットのスタイル */
 .scroll-down .dots {
   margin-top: 10px; /* テキストとドットの間隔 */
   display: flex;
@@ -369,15 +405,6 @@ body {
 }
 
 /* ウィンドウが潰れるアニメーション */
-.scroll-down.shrink {
-  width: 12vw; /* 潰れる前と同じ幅 */
-  height: 4vh; /* 潰れる前と同じ高さ */
-  border-radius: 20px 0px 20px 0px; /* 元の形状を維持 */
-  padding: 1vh; /* 元の余白を維持 */
-  text-align: center; /* テキストを中央揃え */
-  transition: all 0.s ease; /* アニメーションの速度をゆっくりに */
-}
-
 .scroll-down.expand {
   width: 21.35vh; /* 元の幅 */
   height: 4vh; /* 元の高さ */
@@ -620,6 +647,104 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000; /* 他の要素より前面に表示 */
+}
+
+/* レスポンシブ対応: 画面幅が768px以下の場合 */
+@media screen and (max-width: 768px) {
+  /* ヘッダーのスタイル */
+  .header {
+    top: 20px; /* 上部の余白を調整 */
+    left: 10px; /* 左側の余白を調整 */
+  }
+
+  .logo {
+    font-size: 10vw; /* ロゴを小さく調整 */
+    padding-left: 5%; /* 左側の余白を調整 */
+  }
+
+  .sub-logo {
+    font-size: 4vw; /* サブタイトルを小さく調整 */
+    padding-left: 6%; /* 左側の余白を調整 */
+  }
+
+  /* ナビゲーションバー */
+  .nav-bar {
+    top: 5%; /* 上部の位置を調整 */
+    right: 5%; /* 右側の位置を調整 */
+    gap: 1vw; /* 項目間隔を調整 */
+  }
+
+  .nav-bar li {
+    font-size: 3vw; /* ナビゲーション項目を小さく調整 */
+  }
+
+  .nav-description {
+    font-size: 2vw; /* 説明文を小さく調整 */
+  }
+
+  /* 吹き出しのスタイル */
+  .speech-bubble {
+    top: 5%; /* 上部の位置を調整 */
+    right: 5%; /* 右側の位置を調整 */
+    font-size: 2vw; /* フォントサイズを調整 */
+    padding: 1vh; /* 内側の余白を調整 */
+  }
+
+  .speech-bubble::after {
+    bottom: -1vh; /* 三角形の位置を調整 */
+    border: 1vh solid transparent; /* 三角形の大きさを調整 */
+  }
+
+  /* アイコン画像 */
+  .icon-container {
+    top: 10%; /* 上部の位置を調整 */
+    right: 5%; /* 右側の位置を調整 */
+    width: 10vw; /* サイズを調整 */
+    height: 10vw; /* サイズを調整 */
+  }
+
+  /* キャッチコピー */
+  .catch-copy {
+    font-size: 8vw; /* フォントサイズを調整 */
+    bottom: 5%; /* 下部の位置を調整 */
+    right: 5%; /* 右側の位置を調整 */
+  }
+
+  /* SCROLL DOWN テキストウィンドウ */
+  .scroll-down {
+    top: auto; /* 上部の位置を解除 */
+    bottom: 5%; /* 下部の位置を調整 */
+    left: 10%; /* 左側の位置を調整 */
+    width: 20vw; /* 幅を調整 */
+    height: 6vh; /* 高さを調整 */
+    font-size: 1.5vh; /* フォントサイズを調整 */
+  }
+
+  /* ABOUT US セクション */
+  .about-title {
+    font-size: 10vw; /* タイトルを小さく調整 */
+  }
+
+  .about-description {
+    font-size: 4vw; /* サブタイトルを小さく調整 */
+  }
+
+  /* ロード画面 */
+  #loading-screen {
+    font-size: 3vw; /* ロード画面のフォントサイズを調整 */
+  }
+
+  .loading-title {
+    font-size: 5vw; /* ロード画面のタイトルを調整 */
+  }
+
+  .loading-subtitle {
+    font-size: 3vw; /* ロード画面のサブタイトルを調整 */
+  }
+
+  .loading-status {
+    font-size: 3vw; /* ロード進行状況を調整 */
+  }
 }
 
 

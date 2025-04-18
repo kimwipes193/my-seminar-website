@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 // タイトルを小さくするアニメーション
 gsap.to(".logo", {
   scale: 0.5,
-  x: 30,
+  x: 50,
   ease: "power10.out",
   scrollTrigger: {
     trigger: "html",
@@ -17,7 +17,8 @@ gsap.to(".logo", {
 
 // サブタイトルの位置移動
 gsap.to(".sub-logo", {
-  y: -100,
+  x: () => window.innerWidth * -0.007, // 画面幅の5%を基準に調整
+  y: () => window.innerHeight * -0.08, // 画面高さの10%を基準に調整
   ease: "power2.out",
   scrollTrigger: {
     trigger: "html",
